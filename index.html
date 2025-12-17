@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sejf – Twój prywatny folder na Windows</title>
+    <style>
+      :root {
+        --main-bg: #fff;
+        --main-fg: #111;
+        --accent: #000;
+        --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        --radius: 18px;
+        --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--main-bg);
+        color: var(--main-fg);
+        font-family: "Inter", Arial, sans-serif;
+        min-height: 100vh;
+        transition: background var(--transition), color var(--transition);
+      }
+      .container {
+        max-width: 480px;
+        margin: 48px auto 0 auto;
+        background: #fff;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 40px 32px 32px 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: fadeIn 1s;
+      }
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 900;
+        margin: 0 0 12px 0;
+        letter-spacing: -2px;
+        color: var(--accent);
+        animation: slideDown 0.8s;
+      }
+      .logo {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 18px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        animation: popIn 0.7s;
+      }
+      .logo span {
+        color: #fff;
+        font-size: 2.2rem;
+        font-weight: 800;
+        letter-spacing: -1px;
+        user-select: none;
+        transition: transform 0.2s;
+      }
+      .logo:hover span {
+        transform: scale(1.12) rotate(-6deg);
+      }
+      .desc {
+        font-size: 1.1rem;
+        margin: 0 0 18px 0;
+        text-align: center;
+        color: #444;
+        animation: fadeIn 1.2s;
+      }
+      .cta {
+        display: inline-block;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+        font-size: 1.1rem;
+        padding: 14px 36px;
+        border-radius: 100px;
+        margin: 18px 0 24px 0;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        animation: popIn 1.2s;
+      }
+      .cta:hover {
+        background: #222;
+        transform: translateY(-2px) scale(1.04);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
+      }
+      .how {
+        margin: 32px 0 0 0;
+        width: 100%;
+        animation: fadeIn 1.5s;
+      }
+      .how h2 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin: 0 0 10px 0;
+        color: var(--accent);
+      }
+      .how ol {
+        margin: 0 0 0 18px;
+        padding: 0;
+        color: #222;
+      }
+      .how li {
+        margin-bottom: 8px;
+        line-height: 1.6;
+        transition: color 0.2s;
+      }
+      .how li:hover {
+        color: #000;
+      }
+      .features {
+        margin: 36px 0 0 0;
+        width: 100%;
+        animation: fadeIn 1.8s;
+      }
+      .features h2 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin: 0 0 10px 0;
+        color: var(--accent);
+      }
+      .features ul {
+        margin: 0 0 0 18px;
+        padding: 0;
+        color: #222;
+      }
+      .features li {
+        margin-bottom: 7px;
+        line-height: 1.5;
+        position: relative;
+        padding-left: 18px;
+      }
+      .features li::before {
+        content: "";
+        position: static;
+        color: inherit;
+        font-size: inherit;
+        left: unset;
+        top: unset;
+        transition: none;
+      }
+      .features li:hover::before {
+        color: #000;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-32px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @keyframes popIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.7);
+        }
+        80% {
+          opacity: 1;
+          transform: scale(1.08);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      @media (max-width: 600px) {
+        .container {
+          padding: 18px 4vw;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo"><span>🔒</span></div>
+      <h1>sejf</h1>
+      <div class="desc">
+        Twój prywatny, szyfrowany folder na Windows.<br />Prosto. Bezpiecznie.
+        Po polsku.
+      </div>
+      <a class="cta" href="sejf.zip" download>Pobierz aplikację</a>
+      <div class="how">
+        <h2>Jak to działa?</h2>
+        <ol>
+          <li>Pobierz i rozpakuj sejf.zip</li>
+          <li>Uruchom <b>install-sejf.cmd</b> (raz)</li>
+          <li>Otwórz CMD lub PowerShell</li>
+          <li>
+            Wpisz: <b>sejf otworz</b> / <b>sejf zamknij</b> / <b>sejf status</b>
+          </li>
+          <li>Twój folder jest chroniony hasłem – tylko Ty masz dostęp!</li>
+        </ol>
+      </div>
+      <div class="features">
+        <h2>Co możesz zrobić</h2>
+        <ul>
+          <li>Szyfrować i ukrywać dowolny folder</li>
+          <li>Otwierać sejf tylko z hasłem</li>
+          <li>
+            Wszystko działa lokalnie – Twoje dane nie opuszczają komputera
+          </li>
+          <li>Prosta obsługa po polsku</li>
+          <li>Brak instalacji Pythona, brak rejestracji</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
